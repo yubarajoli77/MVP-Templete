@@ -1,0 +1,91 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.compiledSdkVer
+    defaultConfig {
+        applicationId "com.lysoft.mvptemplete"
+        minSdkVersion rootProject.ext.minSdkVer
+        targetSdkVersion rootProject.ext.targetSdkVer
+
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibVer"
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVer"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation "junit:junit:$rootProject.jUnitVer"
+    androidTestImplementation "com.android.support.test:runner:$rootProject.testRunnerVer"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoCoreVer"
+
+    implementation "com.android.support:design:$rootProject.supportLibVer"
+    implementation "com.android.support:recyclerview-v7:$rootProject.supportLibVer"
+    implementation "com.android.support:cardview-v7:$rootProject.supportLibVer"
+    implementation "com.android.support:design:$rootProject.supportLibVer"
+
+    //Dagger 2
+    implementation "com.google.dagger:dagger:$rootProject.dagger2Ver"
+    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Ver"
+
+    //Network
+    implementation "com.squareup.picasso:picasso:$rootProject.picassoVer"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit2Ver"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.gsonConverterVer"
+    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.retrofitRxjavaAdapterVer"
+    implementation "com.squareup.okhttp3:okhttp:$rootProject.okhttp3Ver"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttp3LoggingIntercetperVer"
+    implementation 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0'
+
+    //Gson
+    implementation "com.google.code.gson:gson:$rootProject.gsonVer"
+    implementation('com.fatboyindustrial.gson-jodatime-serialisers:gson-jodatime-serialisers:1.5.0') {
+        exclude group: "joda-time", module: "joda-time"
+    }
+
+    //AutoValue
+    compileOnly 'com.google.auto.value:auto-value:1.5.2'
+    compileOnly 'com.ryanharter.auto.value:auto-value-gson:0.4.5'
+    implementation 'com.ryanharter.auto.value:auto-value-parcel-adapter:0.2.5'
+    annotationProcessor 'com.google.auto.value:auto-value:1.5.2'
+    annotationProcessor 'com.ryanharter.auto.value:auto-value-gson:0.4.5'
+    annotationProcessor 'com.ryanharter.auto.value:auto-value-parcel:0.2.5'
+
+    //Butterknife
+    implementation "com.jakewharton:butterknife:$rootProject.butterKnifeVer"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterKnifeVer"
+
+    //rx java
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Ver"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVer"
+    implementation "com.jakewharton.rxbinding2:rxbinding:$rootProject.rxBinding2Ver"
+
+    //fresco library for image loading
+    implementation "jp.wasabeef:fresco-processors:$rootProject.frescoProcessorVer"
+    implementation "com.facebook.fresco:fresco:$rootProject.frescoVer"
+
+    //relay rxbus
+    implementation "com.jakewharton.rxrelay2:rxrelay:$rootProject.rxRelay2Ver"
+
+    //Support multidex
+    implementation "com.android.support:multidex:$rootProject.multidexVer"
+
+    //Joda time
+    implementation 'net.danlew:android.joda:2.9.5.1'
+    implementation 'com.google.android.gms:play-services-auth:16.0.0'
+    implementation 'com.koushikdutta.ion:ion:2.+'
+}
